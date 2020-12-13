@@ -27,10 +27,8 @@ pipeline {
             }
         }
         stage('Slack Notification') {
-            post {
-                steps {
-                    slackSend "Build Finished - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)" 
-                }
+            always {
+                slackSend "Build Finished - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)" 
             }
         }
     }
