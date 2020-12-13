@@ -27,9 +27,10 @@ pipeline {
             }
         }
         post {
-            success {
-                slackSend channel: '#build-jenkins', 
-                          message: 'Hello, world'
+            stage('Slack Notification') {
+                steps {
+                    slackSend "Build Finished - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)" 
+                }
             }
         }
     }
