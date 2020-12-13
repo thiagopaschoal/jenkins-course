@@ -26,7 +26,7 @@ pipeline {
                 echo 'Deploying...'
             }
         }
-        stage('Slack Notification') {
+        post {
             always {
                 slackSend "Build Finished - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)" 
             }
