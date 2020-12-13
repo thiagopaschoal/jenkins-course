@@ -26,5 +26,11 @@ pipeline {
                 echo 'Deploying...'
             }
         }
+        post {
+            success {
+                slackSend channel: '#build-jenkins', 
+                          message: 'Hello, world'
+            }
+        }
     }
 }
