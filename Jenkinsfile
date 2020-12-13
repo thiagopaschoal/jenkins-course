@@ -26,10 +26,10 @@ pipeline {
                 echo 'Deploying...'
             }
         }
-        post {
-            always {
-                slackSend "Build Finished - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)" 
-            }
+    }
+    post {
+        always {
+            slackSend "Build Finished - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)" 
         }
     }
 }
